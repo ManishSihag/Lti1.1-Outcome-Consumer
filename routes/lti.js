@@ -1,7 +1,6 @@
 var lti = require('ims-lti');
 var _ = require('lodash');
-var oauth = require('oauth-signature');
-var https = require('https');
+
 
 // require('ssl-root-cas/latest')
 // 	.inject()
