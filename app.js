@@ -10,9 +10,9 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
-
+const port = process.env.PORT || 5000;
 // all environments
-app.set('port', process.env.PORT || 5000);
+//app.set('port', process.env.PORT || 5000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 app.use(express.favicon());
@@ -33,6 +33,10 @@ app.post('/lti/send_outcomes', lti.send_outcomes);
 app.post('/lti', lti.got_launch);
 app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+// http.createServer(app).listen(app.get('port'), function(){
+//   console.log('Express server listening on port ' + app.get('port'));
+// });
+
+app.listen(port, ()=>{
+  console.log('listening on port ', port);
+  })
