@@ -15,6 +15,7 @@ const port = process.env.PORT || 5000;
 //app.set('port', process.env.PORT || 5000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
+app.enable('trust proxy');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
