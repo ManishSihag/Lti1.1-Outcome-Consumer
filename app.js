@@ -12,9 +12,9 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', 3000);
+app.set('port', 5000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());

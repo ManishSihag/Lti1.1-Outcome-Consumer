@@ -2,18 +2,19 @@ var lti = require('ims-lti');
 var _ = require('lodash');
 var oauth = require('oauth-signature');
 var https = require('https');
-require('ssl-root-cas/latest')
-	.inject()
-	.addFile(__dirname + '/pddc2.cer')
-	.addFile(__dirname + '/star.cloud.local.crt');
+
+// require('ssl-root-cas/latest')
+// 	.inject()
+// 	.addFile(__dirname + '/pddc2.cer')
+// 	.addFile(__dirname + '/star.cloud.local.crt');
 
 //for testing
 var consumer_key = "12345";
 var consumer_secret = "secret";
-var lis_result_sourcedid = "bbgc46gi65";
-var lis_outcome_service_url="https://cdev-saas-original-prod.blackboard.com/webapps/gradebook/lti11grade";
-var caliper_profile_url = "https://cdev-saas-original-prod.blackboard.com/learn/api/v1/telemetry/caliper/profile/_224_1";
-var custom_caliper_federated_session_id = "https://caliper-mapping.cloudbb.blackboard.com/v1/sites/9f5a97f7-d97d-4f18-843f-ef5b0070f818/sessions/A2825184A0C661A77AF3AE17148C7DC5";
+var lis_result_sourcedid //= "123456789";
+var lis_outcome_service_url//="http://localhost:3000/result";
+// var caliper_profile_url = "https://cdev-saas-original-prod.blackboard.com/learn/api/v1/telemetry/caliper/profile/_224_1";
+// var custom_caliper_federated_session_id = "https://caliper-mapping.cloudbb.blackboard.com/v1/sites/9f5a97f7-d97d-4f18-843f-ef5b0070f818/sessions/A2825184A0C661A77AF3AE17148C7DC5";
 
 
 /*
@@ -152,6 +153,7 @@ exports.send_outcomes = function(req,res) {
         res.render('lti', { title: 'Outcome successfully sent!', content: result });
     }
     else{
+        console.log(err)
         res.render('lti', { title: 'Outcome Failed!', content: err });
     }
 
